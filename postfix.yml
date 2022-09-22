@@ -1,0 +1,15 @@
+---
+- hosts: ansibletest
+  become: true
+  tasks:
+  - name: Install the postfix
+    ansible.builtin.yum:
+      name: postfix
+      state: present
+    tags: init postfix
+
+  - name: Remove the postfix
+    ansible.builtin.yum:
+      name: postfix
+      state: absent
+    tags: drop postfix

@@ -1,0 +1,25 @@
+---
+- hosts: ansibletest
+  become: true
+  tasks:
+
+  - name: Добавить пользователя 'user1' с добавлением его в группу 'wheel'. В CentOS 7 группа 'wheel' даёт права sudo
+    user:
+      name: user1
+      password: $6$DN6EH0TQ2flvqUC/$RL/o8YzONkVIpbxilshM6ea9K2kO/n2t4FdZiqfN3spLuzAk2yVuQTEJU/vz9SEap1ajOF.wT8dsDMhI0Wk3O0
+      shell: /bin/bash
+      groups: wheel
+      append: yes
+
+  - name: Создать 2048-битовый SSH ключ для user1 в ~user1/.ssh/id_rsa
+    user:
+      name: user1
+      generate_ssh_key: yes
+      ssh_key_bits: 2048
+      ssh_key_file: .ssh/id_rsa
+
+  - name: Установить authorized key из файла id_rsa.pub
+    authorized_key:
+      user: user1
+      state: present
+      key: "{{ lookup('file', '/home/user1/.ssh/id_rsa.pub') }}"
