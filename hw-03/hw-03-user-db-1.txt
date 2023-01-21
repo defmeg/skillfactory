@@ -1,0 +1,36 @@
+2023-01-21T15:54:09.243+0000 I CONTROL  [initandlisten] MongoDB starting : pid=1 port=27017 dbpath=/data/db-users 64-bit host=user-db
+2023-01-21T15:54:09.243+0000 I CONTROL  [initandlisten] db version v3.4.1
+2023-01-21T15:54:09.243+0000 I CONTROL  [initandlisten] git version: 5e103c4f5583e2566a45d740225dc250baacfbd7
+2023-01-21T15:54:09.243+0000 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.1t  3 May 2016
+2023-01-21T15:54:09.243+0000 I CONTROL  [initandlisten] allocator: tcmalloc
+2023-01-21T15:54:09.243+0000 I CONTROL  [initandlisten] modules: none
+2023-01-21T15:54:09.243+0000 I CONTROL  [initandlisten] build environment:
+2023-01-21T15:54:09.243+0000 I CONTROL  [initandlisten]     distmod: debian81
+2023-01-21T15:54:09.243+0000 I CONTROL  [initandlisten]     distarch: x86_64
+2023-01-21T15:54:09.243+0000 I CONTROL  [initandlisten]     target_arch: x86_64
+2023-01-21T15:54:09.243+0000 I CONTROL  [initandlisten] options: { config: "/etc/mongodb.conf", storage: { dbPath: "/data/db-users", mmapv1: { smallFiles: true } } }
+2023-01-21T15:54:09.247+0000 I -        [initandlisten] Detected data files in /data/db-users created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+2023-01-21T15:54:09.247+0000 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=1382M,session_max=20000,eviction=(threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=60,log_size=2GB),statistics_log=(wait=0),
+2023-01-21T15:54:10.651+0000 W STORAGE  [initandlisten] Detected configuration for non-active storage engine mmapv1 when current storage engine is wiredTiger
+2023-01-21T15:54:10.651+0000 I CONTROL  [initandlisten] 
+2023-01-21T15:54:10.651+0000 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2023-01-21T15:54:10.651+0000 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2023-01-21T15:54:10.651+0000 I CONTROL  [initandlisten] 
+2023-01-21T15:54:10.651+0000 I CONTROL  [initandlisten] 
+2023-01-21T15:54:10.651+0000 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is 'always'.
+2023-01-21T15:54:10.651+0000 I CONTROL  [initandlisten] **        We suggest setting it to 'never'
+2023-01-21T15:54:10.651+0000 I CONTROL  [initandlisten] 
+2023-01-21T15:54:10.651+0000 I CONTROL  [initandlisten] ** WARNING: /sys/kernel/mm/transparent_hugepage/defrag is 'always'.
+2023-01-21T15:54:10.651+0000 I CONTROL  [initandlisten] **        We suggest setting it to 'never'
+2023-01-21T15:54:10.651+0000 I CONTROL  [initandlisten] 
+2023-01-21T15:54:10.655+0000 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db-users/diagnostic.data'
+2023-01-21T15:54:10.656+0000 I NETWORK  [thread1] waiting for connections on port 27017
+2023-01-21T15:54:11.499+0000 I NETWORK  [thread1] connection accepted from 172.19.0.8:59656 #1 (1 connection now open)
+2023-01-21T15:54:12.295+0000 I INDEX    [conn1] build index on: users.customers properties: { v: 2, unique: true, key: { username: 1 }, name: "username_1", ns: "users.customers", background: true }
+2023-01-21T15:54:12.295+0000 I INDEX    [conn1] build index done.  scanned 3 total records. 0 secs
+2023-01-21T15:54:12.295+0000 I COMMAND  [conn1] command users.$cmd command: createIndexes { createIndexes: "customers", indexes: [ { name: "username_1", ns: "users.customers", key: { username: 1 }, unique: true, dropDups: true, background: true } ] } numYields:0 reslen:113 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { w: 1, W: 2 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 792ms
+2023-01-21T15:55:13.555+0000 I NETWORK  [thread1] connection accepted from 172.19.0.8:59696 #2 (2 connections now open)
+2023-01-21T15:55:14.370+0000 I NETWORK  [thread1] connection accepted from 172.19.0.8:59730 #3 (3 connections now open)
+2023-01-21T15:55:14.370+0000 I NETWORK  [thread1] connection accepted from 172.19.0.8:59732 #4 (4 connections now open)
+2023-01-21T16:04:23.114+0000 I WRITE    [conn2] update users.customers query: { _id: ObjectId('63cc0d06ee11cb000160982b') } planSummary: IDHACK update: { firstName: "def", lastName: "def", email: "def@gmail.com", username: "def", password: "***********************************", links: {}, salt: "****************************", _id: ObjectId('63cc0d06ee11cb000160982b'), addresses: [], cards: [] } keysExamined:0 docsExamined:0 nMatched:0 nModified:0 upsert:1 keysInserted:2 numYields:0 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { w: 1 } }, Collection: { acquireCount: { w: 1 } } } 157ms
+2023-01-21T16:04:23.114+0000 I COMMAND  [conn2] command users.$cmd command: update { update: "customers", updates: [ { q: { _id: ObjectId('63cc0d06ee11cb000160982b') }, u: { firstName: "def", lastName: "def", email: "def@gmail.com", username: "def", password: "**********************************", links: {}, salt: "****************************************", _id: ObjectId('63cc0d06ee11cb000160982b'), addresses: [], cards: [] }, upsert: true } ], writeConcern: { getLastError: 1 }, ordered: true } numYields:0 reslen:110 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { w: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_query 229ms
