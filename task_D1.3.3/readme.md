@@ -1,4 +1,4 @@
-1) Подготовил terraform код \
+1) Подготовил terraform код 
 2) Поравил docker_compose.yaml, указав асолютные пути для передачи файла инстансам \
 3) terraform plan для проверки кода \
 4) terraform apply для применения кода \
