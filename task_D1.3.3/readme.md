@@ -1,5 +1,5 @@
 1) Подготовил terraform код 
-2) Поравил docker_compose.yaml 
+2) Поправил docker_compose.yaml 
 3) Указал асолютные пути для передачи файлов инстансам 
 4) terraform plan для проверки кода 
 5) terraform apply для применения кода 
